@@ -15,3 +15,21 @@
 - термины проекта — [CONTEXT.md](./CONTEXT.md)
 - системные инструкции для агентов — [AGENTS.md](./AGENTS.md)
 
+## Docker: сборка и отладка
+
+Образ Базы ставит общий toolchain (Rust, probe-rs, gdb-multiarch) и не знает про Target. Target-специфичные зависимости добавляет Target-ветка файлом `docker/target/install.sh` — [ADR-0002](./docs/adr/0002-target-extension-via-install-hook.md).
+
+```sh
+./docker/run.sh build                 # собрать образ embed-rust-ai/base
+TARGET=stm32f4xx ./docker/run.sh shell
+TARGET=stm32f4xx ./docker/run.sh flash --chip STM32F407VG target/.../app
+TARGET=stm32f4xx ./docker/run.sh gdb   --chip STM32F407VG
+```
+
+Профиль = Target × Host: `TARGET` задаёт семейство чипов, Host определяется автоматически. Точный чип для probe-rs (`--chip`) остаётся заботой проекта (Board).
+
+Отладка по SWD зависит от Host — [ADR-0003](./docs/adr/0003-swd-debug-host-boundary.md):
+
+- **Linux** — probe-rs работает в контейнере (USB пробрасывается; при необходимости `PRIVILEGED=1`);
+- **macOS** — Docker Desktop не пробрасывает USB, поэтому контейнер только собирает, а прошивка/GDB идут с Host (нужен установленный на Host `probe-rs`).
+
