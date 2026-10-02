@@ -1,0 +1,120 @@
+devices:
+  - vid: "0483"
+    pid: "5740"
+    type: Probe
+    name: "ST-Link V2"
+    description: "ST-Link отладчик"
+
+  - vid: "0483"
+    pid: "3748"
+    type: Probe
+    name: "ST-Link V2-1"
+    description: "ST-Link V2-1 отладчик"
+
+  - vid: "0483"
+    pid: "374b"
+    type: Probe
+    name: "ST-Link V3"
+    description: "ST-Link V3 отладчик"
+
+  - vid: "0483"
+    pid: "374e"
+    type: Probe
+    name: "ST-Link V3E"
+    description: "ST-Link V3E отладчик"
+
+  - vid: "2e8a"
+    pid: "000a"
+    type: Port
+    name: "RP2040"
+    description: "Raspberry Pi RP2040"
+
+  - vid: "2e8a"
+    pid: "0003"
+    type: Port
+    name: "RP2040 Boot"
+    description: "RP2040 Bootloader"
+
+  - vid: "1a86"
+    pid: "7523"
+    type: Port
+    name: "CH340"
+    description: "WCH CH340 UART"
+
+  - vid: "10c4"
+    pid: "ea60"
+    type: Port
+    name: "CP2102"
+    description: "Silicon Labs CP2102"
+
+  - vid: "10c4"
+    pid: "ea61"
+    type: Port
+    name: "CP2103"
+    description: "Silicon Labs CP2103"
+
+  - vid: "0403"
+    pid: "6001"
+    type: Port
+    name: "FT232"
+    description: "FTDI FT232"
+
+  - vid: "0403"
+    pid: "6010"
+    type: Port
+    name: "FT2232"
+    description: "FTDI FT2232"
+
+  - vid: "0403"
+    pid: "6011"
+    type: Port
+    name: "FT4232"
+    description: "FTDI FT4232"
+
+  - vid: "16c0"
+    pid: "0483"
+    type: Port
+    name: "USBasp"
+    description: "USBasp программатор"
+
+  - vid: "1209"
+    pid: "c000"
+    type: Port
+    name: "Generic CDC"
+    description: "Generic CDC ACM"
+
+  - vid: "0d28"
+    pid: "0204"
+    type: Port
+    name: "MBED"
+    description: "MBED виртуальный COM"
+
+  - vid: "0483"
+    pid: "df11"
+    type: Port
+    name: "STM32 Bootloader"
+    description: "STM32 System Bootloader"
+
+  - vid: "1366"
+    pid: "0101"
+    type: Probe
+    name: "J-Link"
+    description: "SEGGER J-Link"
+
+  - vid: "1366"
+    pid: "0105"
+    type: Probe
+    name: "J-Link EDU"
+    description: "SEGGER J-Link EDU"
+
+  - vid: "04b4"
+    pid: "f232"
+    type: Probe
+    name: "Cypress KitProg"
+    description: "Cypress KitProg программатор"
+
+  - vid: "1fc9"
+    pid: "000c"
+    type: Port
+    name: "NXP LPC-Link"
+    description: "NXP LPC-Link отладчик"
