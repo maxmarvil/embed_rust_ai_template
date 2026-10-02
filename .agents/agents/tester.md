@@ -48,7 +48,7 @@ board: NUCLEO-G071RB
 ## Протокол прогона
 
 1. Собери артефакт и зафиксируй его хеш (ELF).
-2. Найди Port/Probe через Skill с ветвлением по Host-системе (Linux: `/dev/ttyUSB*`, `/dev/cu.*`; macOS: `/dev/cu.usbmodem*`).
+2. Найди Port/Probe через Skill `find-embed-connection` (см. `.agents/skills/find-embed-connection/SKILL.md`). Skill работает на хосте, возвращает таблицу с путями, типами, VID/PID, именами и статусами.
 3. Прошей и запусти.
 4. Наблюдай отладочный канал:
    - HIL — RTT-канал probe-rs: лог, exit-код, факт разрыва RTT;
