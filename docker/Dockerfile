@@ -4,7 +4,9 @@
 # каталог docker/target/ БЕЗ install.sh, чтобы Специализация только добавляла
 # файл и не давала merge-конфликтов.
 
-FROM rust:1.98.1-slim-bookworm
+# Debian trixie (glibc 2.41): пребилды probe-rs >= 0.32 требуют glibc >= 2.39,
+# которого нет в bookworm (2.36).
+FROM rust:1.98.1-slim-trixie
 
 ARG PROBE_RS_VERSION=0.32.0
 
