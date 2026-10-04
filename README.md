@@ -21,12 +21,14 @@
 
 ```sh
 ./docker/run.sh build                 # собрать образ embed-rust-ai/base
-TARGET=stm32f4xx ./docker/run.sh shell
-TARGET=stm32f4xx ./docker/run.sh flash --chip STM32F407VG target/.../app
-TARGET=stm32f4xx ./docker/run.sh gdb   --chip STM32F407VG
+TARGET=stm32f103 ./docker/run.sh shell
+TARGET=stm32f103 ./docker/run.sh flash --chip STM32F103C8 target/thumbv7m-none-eabi/release/app
+TARGET=stm32f103 ./docker/run.sh gdb   --chip STM32F103C8
 ```
 
 Профиль = Target × Host: `TARGET` задаёт семейство чипов, Host определяется автоматически. Точный чип для probe-rs (`--chip`) остаётся заботой проекта (Board).
+
+Board этой Target-ветки — **Blue Pill (STM32F103C8T6)**: `--chip STM32F103C8`, Rust-таргет `thumbv7m-none-eabi`, конфигурация платы — `memory.x` (flash 64K, RAM 20K), светодиод — PC13, отладка — внешний ST-Link V2 по SWD.
 
 Отладка по SWD зависит от Host — [ADR-0003](./docs/adr/0003-swd-debug-host-boundary.md):
 
