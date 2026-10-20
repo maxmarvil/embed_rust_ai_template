@@ -1,0 +1,16 @@
+# Default target and runner for stm32f4xx (probe-rs).
+# Replace --chip with the specific Board chip (cargo run -> flashing and running).
+
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+rustflags = [
+    "-C", "link-arg=-Tlink.x",
+]
+
+[target.thumbv7em-none-eabi]
+runner = "probe-rs run --chip STM32F407VG"
+
+[build]
+target = "thumbv7em-none-eabi"
+
+[env]
+DEFMT_LOG = "info"

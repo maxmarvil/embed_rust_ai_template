@@ -1,0 +1,23 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+
+# Base for stm32g0xx (STM32G071RB). The feature and crate versions
+# are updated by the Target branch according to the Board.
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
+stm32g0xx-hal = { version = "0.2", features = ["stm32g071", "rt"] }
+
+[[bin]]
+name = "app"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"

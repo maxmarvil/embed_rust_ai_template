@@ -1,0 +1,21 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2024"
+
+# ESP32 — отдельный сценарий (ADR-0005): xtensa-тулчейн через espup,
+# прошивка через espflash (не probe-rs), линковщик настраивает esp-hal
+# (linkall.x), поэтому memory.x и build.rs не нужны.
+#
+# Base: ESP32 (classic, xtensa). For the C3 — feature "esp32c3",
+# target riscv32imc-unknown-none-elf (no espup needed).
+
+[dependencies]
+esp-hal = { version = "1.2", features = ["esp32", "log"] }
+esp-backtrace = { version = "0.20", features = ["esp32", "panic-handler", "log"] }
+esp-println = { version = "0.18", features = ["esp32", "log"] }
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"

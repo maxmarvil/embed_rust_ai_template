@@ -1,0 +1,23 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+
+# Base for gd32vf1xx (GD32VF103CB, Sipeed Longan Nano). The feature and crate
+# versions are updated by the Target branch according to the Board.
+
+[dependencies]
+riscv = "0.16"
+riscv-rt = "0.18"
+panic-halt = "0.2"
+gd32vf103xx-hal = "0.5"
+
+[[bin]]
+name = "app"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"

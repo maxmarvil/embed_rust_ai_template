@@ -1,0 +1,24 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+
+# Base for nrf528xx (nRF52840). The HAL crate and versions
+# are updated by the Target branch according to the Board
+# (nrf52840-hal / nrf52832-hal / nrf52811-hal).
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
+nrf52840-hal = { version = "0.19", features = ["rt"] }
+
+[[bin]]
+name = "app"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"

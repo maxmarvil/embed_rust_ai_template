@@ -1,0 +1,24 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+
+# Base for rp2040 (Raspberry Pi Pico: 2MB QSPI Flash, 264K RAM).
+# The crate versions are updated by the Target branch according to the Board.
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
+rp2040-boot2 = "0.3"
+rp2040-hal = { version = "0.12", features = ["rt"] }
+
+[[bin]]
+name = "app"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"

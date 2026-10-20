@@ -1,0 +1,13 @@
+# Default target and runner for gd32vf1xx (probe-rs).
+# Replace --chip with the specific Board chip (cargo run -> flashing and running).
+
+[target.'cfg(all(target_arch = "riscv32", target_os = "none"))']
+rustflags = [
+    "-C", "link-arg=-Tlink.x",
+]
+
+[target.riscv32imac-unknown-none-elf]
+runner = "probe-rs run --chip GD32VF103"
+
+[build]
+target = "riscv32imac-unknown-none-elf"

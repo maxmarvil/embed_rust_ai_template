@@ -1,0 +1,16 @@
+# ESP32 — a separate scenario (ADR-0005): xtensa + espflash, NOT probe-rs.
+# The linker script (linkall.x) is provided by esp-hal — no memory.x/build.rs needed.
+# Target and runner — for the ESP32 classic (xtensa); for the C3 — see README.
+
+[target.xtensa-esp32-none-elf]
+runner = "espflash flash --monitor"
+
+rustflags = [
+    "-C", "link-arg=-Tlinkall.x",
+]
+
+[build]
+target = "xtensa-esp32-none-elf"
+
+[env]
+ESP_LOG = "info"

@@ -4,7 +4,7 @@
 
 ## Контекст
 
-Проект — шаблон окружения для встраиваемой разработки на Rust со сборкой в Docker. Термины проекта — см. [CONTEXT.md](./CONTEXT.md); модель веток и специализации — см. [docs/adr/0001-merge-based-target-specialization.md](./docs/adr/0001-merge-based-target-specialization.md).
+Проект — шаблон окружения для встраиваемой разработки на Rust со сборкой локально на Host. Термины проекта — см. [CONTEXT.md](./CONTEXT.md); модель веток и специализации — см. [docs/adr/0001-merge-based-target-specialization.md](./docs/adr/0001-merge-based-target-specialization.md).
 
 ## Правила веточной модели
 
